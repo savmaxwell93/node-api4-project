@@ -57,7 +57,8 @@ router.post('/login', async (req, res) => {
             })
         } else {
             res.json({
-                message: `Welcome ${user.username}`
+                message: `Welcome ${user.username}`,
+                displayMessage: `<h1>Welcome ${user.username}</h1>`
             })
         }
     } catch (err) {
