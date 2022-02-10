@@ -11,12 +11,10 @@ server.use(express.json())
 server.use(cors())
 
 server.get('/hello', (req, res) => {
-    res.send(`
-    <h1>Hello! API is working</h1>
-    `)
+    res.json({ message: 'Hello! API is working!'})
 })
 
-server.use('*', (res, req) => {
+server.use('*', (req, res) => {
     res.send(`<h1>Web50 Deployment Project</h1>`)
 })
 
