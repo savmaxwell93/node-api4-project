@@ -21,6 +21,11 @@ const users = [
     },
 ]
 
+const findByPassword = password => {
+    const user = users.find(p => p.passowrd === password)
+    return user
+}
+
 router.get('/users', (req, res) => {
     res.json(users)
 })
@@ -39,6 +44,25 @@ router.post('/register', async (req, res) => {
     } catch (err) {
         res.status(500).json({
             message: "unable to add new user"
+        })
+    }
+})
+
+router.post('/login', async (req, res) => {
+    const user = await findByPassword(req.body.password)
+    try {
+        if (!user) {
+            res.status(404).json({
+                message: "user not found, unable to login"
+            })
+        } else {
+            res.json({
+                message: `Welcome ${user.username}`
+            })
+        }
+    } catch (err) {
+        res.status(500).json({
+            message: "unable to login"
         })
     }
 })
