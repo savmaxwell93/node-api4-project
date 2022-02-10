@@ -5,24 +5,24 @@ const router = express.Router()
 const users = [
     {
         username: 'Audrey',
-        passowrd: 'dogo'
+        password: 'dogo'
     },
     {
         username: 'Einstein',
-        passowrd: 'floofer'
+        password: 'floofer'
     },
     {
         username: 'Mew Foster',
-        passowrd: 'hero'
+        password: 'hero'
     },
     {
         username: 'Marvin The Martian',
-        passowrd: 'lilthief'
+        password: 'lilthief'
     },
 ]
 
 const findByPassword = password => {
-    const user = users.find(p => p.passowrd === password)
+    const user = users.find(p => p.password === password)
     return user
 }
 
