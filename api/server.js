@@ -12,7 +12,7 @@ server.get('/api/hello', (req, res) => {
     res.json({ message: 'Hello! API is working!'})
 })
 
-server.use('/api/users', usersRouter)
+server.use('/api', usersRouter)
 
 server.use('*', (req, res) => {
     res.send(`<h1>Web50 Deployment Project</h1>`)
